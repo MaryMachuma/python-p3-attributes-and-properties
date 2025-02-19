@@ -12,12 +12,9 @@ APPROVED_BREEDS = [
 ]
 
 class Dog:
-    def __init__(self, name="Unknown", breed="Beagle"):
-        self._name = "Unknown"  # Initialize private attributes first
-        self._breed = "Beagle"  
-
-        self.name = name  # Now use property setters
-        self.breed = breed  
+    def __init__(self, name="Unknown", breed="Beagle"):  
+        self.name = name
+        self.breed = breed
 
     @property
     def name(self):
@@ -39,16 +36,4 @@ class Dog:
         if value in APPROVED_BREEDS:
             self._breed = value
         else:
-            if self._breed in APPROVED_BREEDS:  # Ensures it prints only once
-                print("Breed must be in list of approved breeds.")
-            self._breed = "Unknown"
-
-# Testing
-if __name__ == "__main__":
-    dog1 = Dog("Buddy", "Pug")
-    print(f"Dog's name: {dog1.name}, Breed: {dog1.breed}")
-
-    dog2 = Dog("Max", "Wolf")  # Invalid breed (prints once)
-    dog2.breed = "Wolf"  # Should NOT print again
-
-   
+            print("Breed must be in list of approved breeds.")
